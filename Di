@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Se viene Diciembre con D de...</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100dvh;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+      }
+      span {
+        position: absolute;
+        top: 30px;
+        transition: opacity 6s ease;
+      }
+      h1 {
+        margin: 0;
+        font-size: 3rem;
+      }
+      .text {
+        margin: 0;
+        margin-top: 8px;
+        font-size: 2rem;
+      }
+      .text2 {
+        margin: 0;
+        margin-top: 24px;
+        font-size: 3rem;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 4s ease;
+      }
+      .mostrar {
+        opacity: 1;
+      }
+      .esconder {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <span id="span">(dale click a la pantalla)</span>
+    <h1>Diciembre</h1>
+    <p id="text" class="text">Se viene Diciembre con D de...</p>
+    <p id="text2" class="text2">
+      <b>
+        Dale no seas tímida<br />
+        rompe abusadora,<br />
+        rompe el suelo<br />
+        con la batidora
+      </b>
+    </p>
+    <audio id="audio" src="ruta-local/audio.mp3" hidden></audio>
+
+    <script>
+      const $ = (e) => document.getElementById(e);
+      const text2 = $("text2");
+      const span = $("span");
+      const audio = $("audio");
+
+      document.body.addEventListener("click", () => {
+        span.classList.add("esconder");
+        text2.classList.add("mostrar");
+        audio.play().catch(error => {
+          console.error("Error al reproducir el audio:", error);
+        });
+      });
+    </script>
+  </body>
+</html>
+
